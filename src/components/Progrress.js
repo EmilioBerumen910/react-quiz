@@ -1,9 +1,13 @@
-function Progrress({index,numberQuestions,points,maxPoints,answer}) {
+import { useQuizContext } from "../contexts/QuizContext";
+function Progrress() {
+
+    const {index,numQuestions,points,maxPossiblePoints,answer} = useQuizContext();
+
     return (
         <header className="progress">
-            <progress max={numberQuestions} value={index + Number(answer !== null)} />
-            <p>Question: <strong>{index + 1 } </strong> / {numberQuestions}</p>
-            <p><strong>{points} / {maxPoints}</strong></p>
+            <progress max={numQuestions} value={index + Number(answer !== null)} />
+            <p>Question: <strong>{index + 1 } </strong> / {numQuestions}</p>
+            <p><strong>{points} / {maxPossiblePoints}</strong></p>
         </header>
     )
 }

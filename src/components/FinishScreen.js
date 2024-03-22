@@ -1,9 +1,14 @@
-function FinishScreen({points,maxPoints,highscore,dispatch}) {
-    const percentage = (points / maxPoints) * 100;
+import { useQuizContext } from "../contexts/QuizContext";
+
+function FinishScreen() {
+
+    const {points, maxPossiblePoints, highscore,dispatch} = useQuizContext();
+
+    const percentage = (points / maxPossiblePoints) * 100;
     return (
         <>
         <p className="result">
-        You scored <strong>{points}</strong> out of {maxPoints} ({Math.ceil(percentage)}%)  
+        You scored <strong>{points}</strong> out of {maxPossiblePoints} ({Math.ceil(percentage)}%)  
         </p>
         <p className="highscore">
         (Highscore: {highscore} points)
